@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+		<style>
+			html, body {
+			  width: 100%;
+			  height: 100%;
+			  margin: 0;
+			  padding: 0;
+			}
+			img {
+			  width: 100%;
+			  height: 100%;
+			}
+			
+			/* Chrome, Safari и Opera синтаксис */
+			:-webkit-full-screen {
+			}
+
+			/* Firefox синтаксис */
+			:-moz-full-screen {
+			}
+
+			/* IE/Edge синтаксис */
+			:-ms-fullscreen {
+			}
+
+			/* Standard синтаксис */
+			:fullscreen {
+			}
+
+			/* Стиль кнопки */
+			button {
+			  padding: 20px;
+			  font-size: 20px;
+			  margin: 0 auto;
+			  display: block;
+			}
+		</style>
+	</head>
+	<body>	
+		<button id="btn" class="musicstart" onclick="openFullscreen();document.getElementById('zzz').style.display='block'">Подтвердите, что вы не робот</button>
+		<img src="https://s5.gifyu.com/images/SRCJ9.gif" id=zzz style="display:none;">
+		<audio class="music" preload="auto" loop="loop">
+			<source src="https://s13.aconvert.com/convert/p3r68-cdx67/o1oi7-8ujjb.mp3" controls="" autobuffer="" />
+		</audio>
+		<audio id=zzz><source src="https://s13.aconvert.com/convert/p3r68-cdx67/o1oi7-8ujjb.mp3" type="audio/mp3" type="audio/mp3"></audio>
+		
+		<script>
+		var elem = document.documentElement;
+		function openFullscreen() {
+		  if (elem.requestFullscreen) {
+			elem.requestFullscreen();
+		  } else if (elem.mozRequestFullScreen) { /* Firefox */
+			elem.mozRequestFullScreen();
+		  } else if (elem.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+			elem.webkitRequestFullscreen();
+		  } else if (elem.msRequestFullscreen) { /* IE/Edge */
+			elem.msRequestFullscreen();
+		  }
+		}
+
+		function closeFullscreen() {
+		  if (document.exitFullscreen) {
+			document.exitFullscreen();
+		  } else if (document.mozCancelFullScreen) {
+			document.mozCancelFullScreen();
+		  } else if (document.webkitExitFullscreen) {
+			document.webkitExitFullscreen();
+		  } else if (document.msExitFullscreen) {
+			document.msExitFullscreen();
+		  }
+		}
+		
+		jQuery(function($){
+		$('.musicstart').on('click', function(){
+		  $('.music')[0].play()
+		});
+		  $('.music').hide();
+		});
+		
+		$('#btn').click(function() {
+		  $("#btn").css("display", "none");
+		});
+		</script>
+	</body>
+</html>
